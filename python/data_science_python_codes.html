@@ -55,6 +55,10 @@
             <pre><code>>>> db.col1.value_counts()<br>>>> db.col1.value_counts(normalize=True) #in percentage</code></pre>
             <p>get unique list of item in a series</p>
             <pre><code>>>> db.col1.unique()</code></pre>
+            <p>using index</p>
+            <pre><code>>>> db.loc[4, "col1"]<br>>>> db.loc[:, "col1"]<br>>>> db.loc[3, :]</code></pre>
+            <p>Serialization of db</p>
+            <pre><code>>>> db.to_pickle('file.pkl')<br>>>> db.read_pickle('file.pkl')</code></pre>    
             <p></p>
             <pre><code>>>> </code></pre>
             <p></p>
@@ -66,7 +70,17 @@
             <pre><code>>>> </code></pre>
             <p></p>
             <pre><code>>>> </code></pre>
-        
+        <h2>Sklearn</h2>
+            <p>logistic regression</p>
+            <pre><code>>>> from sklearn.linear_model import LogisticRegression<br>>>> logitmodel = LogisticRegression()<br>>>> X = train_db.loc[:, x_features]<br>>>> y = train_db.loc[:, y]<br>>>> logitmodel.fit(X, y)</code></pre>
+            <p>testing </p>
+            <pre><code>>>> X_test = test_db.loc[:, x_features]<br>>>> y_predcted = logitmodel.predict(X_test)</code></pre>
+            <p>random sample</p>
+            <pre><code>>>> training = db.sample(n = 50, random_state = 1) #or <br>>>> training =    db.sample(frac = 0.6, random_state = 55)<br>>>> test = db.loc[~db.index.isin(training.index), :]</code></pre>
+            <p>get dummy variable, example: sex = [male, female] to sex_male and sex_female</p>
+            <pre><code>>>> dummies = pd.get_dummies(db.sex, prefix = 'sex').iloc[:, 1:]<br>>>> db = pd.concate([db, dummies], axis = 1)</code></pre>
+            <p>get dummy variables for multiple cols</p>
+            <pre><code>>>> train = pd.get_dummies(train, columns = ['col1', 'col2'], drop_first = True)</code></pre>     
 
 
     
