@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>data science python</title>
+    </head>
+    <style>
+        pre code {
+                    background-color: #eee;
+                    border: 1px solid #eee;
+                    display: block;
+                    padding: 12px;
+                }
+    </style>
+    <body>
+        <h1>Python, Pandas, Sklearn for data science</h1>
+        <p>Author: Fei Xie</p>
+        <p>This file contains sample codes for using python, pandas, sklearn to do common data science jobs. </p>
+        <h2>Pandas</h2>
+        
+            <p>read pandas</p>
+            <pre><code>>>> import pandas as pd</code></pre>
+            <p>import table</p>
+            <pre><code>>>> db = pd.read_table(url, sep = ',')</code></pre>
+            <p>selecting series</p>
+            <pre><code>>>> db["col1"] or db.col1</code></pre>
+            <p>check type</p>
+            <pre><code>>>> type(db["col1"])</code></pre>
+            <p>descriptive statistics</p>
+            <pre><code>>>> db.describe()</code></pre>
+            <p>shape</p>
+            <pre><code>>>> db.shape</code></pre>
+            <p>renaming columns</p>
+            <pre><code>>>> db.raname(columns = {"col1" : "newCol1", "col2" : "newCol2"}, inplace = True)</code></pre>
+            <p>renaming multiple columns</p>
+            <pre><code>>>> db.columns = newColumns</code></pre>
+            <p>changing column name when reading dataframe</p>
+            <pre><code>>>> db = pd.read_csv(url, names = newColumns)</code></pre>
+            <p>drop/remove columns</p>
+            <pre><code>>>> list_to_drop = ["col1", "col2"] <br>>>> db.drop(list_to_drop, axis = 1, inplace = True)</code></pre>
+            <p>drop/remove rols</p>
+            <pre><code>>>> rows_to_drop = [1,2,3]<br>>>> db.drop(rows_to_drop, axis = 0, inplace = True)</code></pre>
+            <p>sorting values</p>
+            <pre><code>>>> db["col1"].sort_values() #sort in ascending<br>>>> db["col1"].sort_values(ascending = False) #short in descending </code></pre>
+            <p>sorting with multiple columns</p>
+            <pre><code>>>> columns = ["col1", "col2"]<br>>>> db.sort_values(columns, ascending = True) #first sort col1 and within sorted group, sort col2 </code></pre>
+            <p>filtering </p>
+            <pre><code>>>> db[db.col1 >= 200]</code></pre>
+            <p>multiple filtering</p>
+            <pre><code>>>> db[(db.cok1 >= 200) & (db.col2 == 'x')]<br>>>> db[(db.cok1 >= 200) | (db.col2 == 'x')]</code></pre>
+            <p>changing datatype</p>
+            <pre><code>>>> db["col1"] = db.col1.astype("float")</code></pre>
+            <p>group by</p>
+            <pre><code>>>> db.groupby("col1").col2.mean()</code></pre>
+            <p>frequency by item in a column</p>
+            <pre><code>>>> db.col1.value_counts()<br>>>> db.col1.value_counts(normalize=True) #in percentage</code></pre>
+            <p>get unique list of item in a series</p>
+            <pre><code>>>> db.col1.unique()</code></pre>
+            <p></p>
+            <pre><code>>>> </code></pre>
+            <p></p>
+            <pre><code>>>> </code></pre>
+        <h2>visulization</h2>
+            <p>histogram of one column</p>
+            <pre><code>>>> data = db.col1<br>>>> data.plot(kind="hist")</code></pre>
+            <p></p>
+            <pre><code>>>> </code></pre>
+            <p></p>
+            <pre><code>>>> </code></pre>
+        
+
+
+    
+    
+    </body>
+</html>
